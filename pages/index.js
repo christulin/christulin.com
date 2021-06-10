@@ -5,7 +5,8 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Chris Tulin | Developer</title>
+        <meta name="description" content="The portfolio website for Chris Tulin, along with a collection of rants about software engineering, web development, and marketing automation" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -15,8 +16,7 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          More is on it's way soon
-          {/* <code className={styles.code}>pages/index.js</code> */}
+          More is on its way soon
         </p>
 
         <div className={styles.grid}>
