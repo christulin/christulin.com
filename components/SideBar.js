@@ -1,11 +1,15 @@
+import styles from '../styles/SideBar.module.css';
+
 const SideBar = () => {
 
   return (
     <div>
       <h1>Chris Tulin</h1>
-      <a href="/">home</a>
-      <a href="/contact">contact</a>
-      <a href="/about">about</a>
+      <ul className="list-group list-group-flush">
+        <li className="list-group-item"><a href="/">home</a></li>
+        <li className="list-group-item"><a href="/contact">contact</a></li>
+        <li className="list-group-item"><a href="/about">about</a></li>
+      </ul>
     </div>
 
   )

@@ -2,9 +2,11 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import Head from 'next/head'
-// import { CMS_NAME } from '../../lib/constants'
+import PostBody from '../../components/PostBody';
 import PostHeader from '../../components/PostHeader';
+import SideBar from '../../components/SideBar';
 import markdownToHtml from '../../lib/markdownToHtml.js'
+import styles from '../../styles/Home.module.css';
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
@@ -12,24 +14,32 @@ export default function Post({ post, morePosts, preview }) {
   //   return <ErrorPage statusCode={404} />
   // }
   return (
-
-      <article className="mb-32">
+      <>
         <Head>
           <title>
             {post.title}
           </title>
-          {/* <meta property="og:image" content={post.ogImage.url} /> */}
         </Head>
-
-        {/* Add components postHeader and postBody.. build basic strucuture */}
-
-        <PostHeader
-          title={post.title}
-          date={post.date}
-          author={post.author}
-        />
-        {/* <PostBody content={post.content} /> */}
-      </article>
+        <main className={styles.main}>
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-sm-4">
+                <SideBar />
+              </div>
+              <div className="col-sm-8">
+                <article className="mb-32">
+                  <PostHeader
+                    title={post.title}
+                    date={post.date}
+                    author={post.author}
+                  />
+                  <PostBody content={post.content} />
+                </article>
+              </div>
+            </div>
+          </div>
+        </main>
+      </>
   )
 }
 

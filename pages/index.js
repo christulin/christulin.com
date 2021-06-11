@@ -1,8 +1,11 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import SideBar from '../components/SideBar';
+import PostTile from '../components/PostTile';
+import { getAllPosts } from '../lib/api'
 
-export default function Home() {
+export default function Home({ allPosts }) {
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,23 +19,9 @@ export default function Home() {
             <div className="col-sm-4">
               <SideBar />
             </div>
-
             <div className="col-sm-8">
               <div className={styles.grid}>
-                <a href="https://github.com/christulin" className={styles.card}>
-                  <h3>Github</h3>
-                  <p>Check out my repositories!</p>
-                </a>
-
-                <a href="https://www.linkedin.com/in/christopher-tulin-2469b4122/" className={styles.card}>
-                  <h3>Linkedin</h3>
-                  <p>Connect with me on Linkedin</p>
-                </a>
-
-                <a href="/about" className={styles.card}>
-                  <h3>About me</h3>
-                  <p>Click Here to learn more</p>
-                </a>
+                {allPosts.map((post, i) => <PostTile post={post} key={i} />)}
               </div>
             </div>
           </div>
@@ -44,4 +33,18 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const allPosts = getAllPosts([
+    'title',
+    'date',
+    'slug',
+    'author',
+    'excerpt',
+  ])
+
+  return {
+    props: { allPosts },
+  }
 }
