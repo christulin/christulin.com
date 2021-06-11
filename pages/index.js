@@ -1,7 +1,11 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
+import SideBar from '../components/SideBar';
+import PostTile from '../components/PostTile';
+import { getAllPosts } from '../lib/api'
 
-export default function Home() {
+export default function Home({ allPosts }) {
+
   return (
     <div className={styles.container}>
       <Head>
@@ -9,26 +13,18 @@ export default function Home() {
         <meta name="description" content="The portfolio website for Chris Tulin, along with a collection of rants about software engineering, web development, and marketing automation" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to Chris Tulin's personal site
-        </h1>
-
-        <p className={styles.description}>
-          More is on its way soon
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://github.com/christulin" className={styles.card}>
-            <h3>Github</h3>
-            <p>Check out my repositories!</p>
-          </a>
-
-          <a href="https://www.linkedin.com/in/christopher-tulin-2469b4122/" className={styles.card}>
-            <h3>Linkedin</h3>
-            <p>Connect with me on Linkedin</p>
-          </a>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-sm-4">
+              <SideBar />
+            </div>
+            <div className="col-sm-8">
+              <div className={styles.grid}>
+                {allPosts.map((post, i) => <PostTile post={post} key={i} />)}
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
@@ -37,4 +33,18 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const allPosts = getAllPosts([
+    'title',
+    'date',
+    'slug',
+    'author',
+    'excerpt',
+  ])
+
+  return {
+    props: { allPosts },
+  }
 }
