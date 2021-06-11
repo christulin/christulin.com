@@ -1,6 +1,6 @@
 import SideBar from '../components/SideBar';
 
-const About = () => {
+const Contact = () => {
 
 
   return (
@@ -11,4 +11,4 @@ const About = () => {
   )
 }
 
-export default About;
+export default Contact;
