@@ -5,12 +5,12 @@ const Contact = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.sideBar}>
+        <SideBar />
+      </div>
       <main className={styles.main}>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-sm-4">
-              <SideBar />
-            </div>
             <div className="col-sm-8">
               <p>Contact Section Will be added here</p>
             </div>

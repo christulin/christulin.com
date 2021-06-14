@@ -3,7 +3,7 @@ import styles from '../styles/SideBar.module.css';
 const SideBar = () => {
 
   return (
-    <div>
+    <div className={styles.inner}>
       <h1>Chris Tulin</h1>
       <ul className="list-group list-group-flush">
         <li className="list-group-item"><a href="/">home</a></li>
