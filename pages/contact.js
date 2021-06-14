@@ -1,4 +1,5 @@
 import SideBar from '../components/SideBar';
+import Footer from '../components/Footer';
 import styles from '../styles/Home.module.css';
 
 const Contact = () => {
@@ -17,9 +18,7 @@ const Contact = () => {
           </div>
         </div>
       </main>
-      <footer className={styles.footer}>
-        &copy; 2021
-      </footer>
+      <Footer />
     </div>
   )
 }

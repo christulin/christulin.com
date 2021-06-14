@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import SideBar from '../components/SideBar';
 import PostTile from '../components/PostTile';
+import Footer from '../components/Footer';
 import { getAllPosts } from '../lib/api'
 
 export default function Home({ allPosts }) {
@@ -25,9 +26,7 @@ export default function Home({ allPosts }) {
           </div>
         </div>
       </main>
-      <footer className={styles.footer}>
-        &copy; 2021
-      </footer>
+      <Footer />
     </div>
   )
 }
