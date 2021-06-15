@@ -6,6 +6,7 @@ import PostBody from '../../components/PostBody';
 import PostHeader from '../../components/PostHeader';
 import SideBar from '../../components/SideBar';
 import Footer from '../../components/Footer';
+import Nav from '../../components/Nav';
 import markdownToHtml from '../../lib/markdownToHtml.js'
 import styles from '../../styles/Home.module.css';
 
@@ -21,9 +22,8 @@ export default function Post({ post, morePosts, preview }) {
             {post.title}
           </title>
         </Head>
-        <div className={styles.sideBar}>
+        <Nav />
         <SideBar />
-        </div>
         <main className={styles.main}>
           <div className="container-fluid">
             <div className="row">
