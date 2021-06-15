@@ -1,13 +1,14 @@
 import SideBar from '../components/SideBar';
+import Footer from '../components/Footer';
+import Nav from '../components/Nav';
 import styles from '../styles/Home.module.css';
 
 const About = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.sideBar}>
-        <SideBar />
-      </div>
+      <Nav />
+      <SideBar />
       <main className={styles.main}>
         <div className="container-fluid">
           <div className="row">
@@ -18,9 +19,7 @@ const About = () => {
           </div>
         </div>
       </main>
-      <footer className={styles.footer}>
-      &copy; 2021
-      </footer>
+      <Footer />
    </div>
   )
 }

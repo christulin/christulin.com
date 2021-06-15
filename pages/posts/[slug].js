@@ -5,6 +5,8 @@ import Head from 'next/head'
 import PostBody from '../../components/PostBody';
 import PostHeader from '../../components/PostHeader';
 import SideBar from '../../components/SideBar';
+import Footer from '../../components/Footer';
+import Nav from '../../components/Nav';
 import markdownToHtml from '../../lib/markdownToHtml.js'
 import styles from '../../styles/Home.module.css';
 
@@ -20,11 +22,13 @@ export default function Post({ post, morePosts, preview }) {
             {post.title}
           </title>
         </Head>
+        <Nav />
+        <SideBar />
         <main className={styles.main}>
           <div className="container-fluid">
             <div className="row">
               <div className="col-sm-4">
-                <SideBar />
+                {/* <SideBar /> */}
               </div>
               <div className="col-sm-8">
                 <article className="mb-32">
@@ -39,6 +43,7 @@ export default function Post({ post, morePosts, preview }) {
             </div>
           </div>
         </main>
+        <Footer />
       </>
   )
 }

@@ -1,8 +1,19 @@
-.sidebar {
-  display: flex;
+#mainNav {
+  min-height: calc(100vh - 100px);
 }
 
-.inner {
-  margin-top: 15rem;
-  padding-left: 5rem;
+.sideBar {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 140px;
+  transition: .5s;
+}
+
+@media (max-width: 600px) {
+  .sideBar {
+    margin-left: -140px;
+  }
 }

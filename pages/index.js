@@ -2,6 +2,8 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import SideBar from '../components/SideBar';
 import PostTile from '../components/PostTile';
+import Footer from '../components/Footer';
+import Nav from '../components/Nav';
 import { getAllPosts } from '../lib/api'
 
 export default function Home({ allPosts }) {
@@ -13,9 +15,8 @@ export default function Home({ allPosts }) {
         <meta name="description" content="The portfolio website for Chris Tulin, along with a collection of rants about software engineering, web development, and marketing automation" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.sideBar}>
-        <SideBar />
-      </div>
+      <Nav />
+      <SideBar />
       <main className={styles.main}>
         <div className="container-fluid">
           <div className="row">
@@ -25,9 +26,7 @@ export default function Home({ allPosts }) {
           </div>
         </div>
       </main>
-      <footer className={styles.footer}>
-        &copy; 2021
-      </footer>
+      <Footer />
     </div>
   )
 }

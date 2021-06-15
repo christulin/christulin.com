@@ -3,13 +3,18 @@ import styles from '../styles/SideBar.module.css';
 const SideBar = () => {
 
   return (
-    <div className={styles.inner}>
-      <h1>Chris Tulin</h1>
-      <ul className="list-group list-group-flush">
-        <li className="list-group-item"><a href="/">home</a></li>
-        <li className="list-group-item"><a href="/contact">contact</a></li>
-        <li className="list-group-item"><a href="/about">about</a></li>
-      </ul>
+    <div className={styles.sideBar} id="sideBar">
+      <aside id={styles.mainNav} className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
+        <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <span className="fs-4">Chris Tulin</span>
+        </a>
+        <hr />
+        <ul className="nav nav-pills flex-column mb-auto">
+          <li className="nav-item"><a className="nav-link text-white" href="/">home</a></li>
+          <li className="nav-item"><a className="nav-link text-white" href="/contact">contact</a></li>
+          <li className="nav-item"><a className="nav-link text-white" href="/about">about</a></li>
+        </ul>
+      </aside>
     </div>
 
   )
