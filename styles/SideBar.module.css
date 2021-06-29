@@ -2,6 +2,11 @@
   min-height: calc(100vh - 100px);
 }
 
+
+#sideBar.show {
+  margin-left: 0px !important;
+}
+
 .sideBar {
   position: fixed;
   left: 0;
@@ -12,8 +17,8 @@
   transition: .5s;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .sideBar {
     margin-left: -140px;
   }
-}
+} */

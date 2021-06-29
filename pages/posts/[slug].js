@@ -9,12 +9,21 @@ import Footer from '../../components/Footer';
 import Nav from '../../components/Nav';
 import markdownToHtml from '../../lib/markdownToHtml.js'
 import styles from '../../styles/Home.module.css';
+import { useEffect, useState } from 'react';
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
   // if (!router.isFallback && !post?.slug) {
   //   return <ErrorPage statusCode={404} />
   // }
+  const [showSideBar, toggleSideBar] = useState(true);
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    if (width <= 600) {
+      toggleSideBar(false)
+    }
+  }, []);
   return (
       <>
         <Head>
@@ -22,8 +31,8 @@ export default function Post({ post, morePosts, preview }) {
             {post.title}
           </title>
         </Head>
-        <Nav />
-        <SideBar />
+        <Nav toggleSideBar={toggleSideBar} showSideBar={showSideBar}/>
+        <SideBar showSideBar={showSideBar}/>
         <main className={styles.main}>
           <div className="container-fluid">
             <div className="row">
