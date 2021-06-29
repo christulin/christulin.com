@@ -1,16 +1,7 @@
 import '../styles/globals.css';
 import Head from 'next/head';
-import { useEffect } from 'react';
-import { setup, cleanup } from '../lib/main';
 
 function MyApp({ Component, pageProps }) {
-
-  useEffect(() => {
-    setup();
-    return () => {
-      cleanup();
-    }
-  }, []);
 
   return (
     <>

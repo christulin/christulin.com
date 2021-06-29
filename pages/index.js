@@ -4,9 +4,19 @@ import SideBar from '../components/SideBar';
 import PostTile from '../components/PostTile';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
-import { getAllPosts } from '../lib/api'
+import { getAllPosts } from '../lib/api';
+import { useState, useEffect } from 'react';
 
 export default function Home({ allPosts }) {
+
+  const [showSideBar, toggleSideBar] = useState(true);
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    if (width <= 600) {
+      toggleSideBar(false)
+    }
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -15,8 +25,8 @@ export default function Home({ allPosts }) {
         <meta name="description" content="The portfolio website for Chris Tulin, along with a collection of rants about software engineering, web development, and marketing automation" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Nav />
-      <SideBar />
+      <Nav toggleSideBar={toggleSideBar} showSideBar={showSideBar}/>
+      <SideBar showSideBar={showSideBar}/>
       <main className={styles.main}>
         <div className="container-fluid">
           <div className="row">

@@ -14,7 +14,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-#sideBar.show {
-  margin-left: 0px;
-}
