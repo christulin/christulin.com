@@ -25,18 +25,13 @@ export default function Home({ allPosts }) {
         <meta name="description" content="The portfolio website for Chris Tulin, along with a collection of rants about software engineering, web development, and marketing automation" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Nav toggleSideBar={toggleSideBar} showSideBar={showSideBar}/>
       <SideBar showSideBar={showSideBar}/>
       <main className={styles.main}>
-        <div className="container-fluid">
-          <div className="row">
-            <div className={styles.grid}>
-              {allPosts.map((post, i) => <PostTile post={post} key={i} />)}
-            </div>
-          </div>
+        <div className={styles.grid}>
+          {allPosts.map((post, i) => <PostTile post={post} key={i} />)}
         </div>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

@@ -1,24 +1,152 @@
-#mainNav {
-  min-height: calc(100vh - 100px);
-}
-
-
-#sideBar.show {
-  margin-left: 0px !important;
-}
-
-.sideBar {
-  position: fixed;
-  left: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  width: 140px;
-  transition: .5s;
-}
-
-/* @media (max-width: 600px) {
+@media (min-width: 993px) {
   .sideBar {
-    margin-left: -140px;
+    position: fixed;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 30vh;
+    background: #000;
+    color: #FFF;
+    padding: 50px 0;
   }
-} */
+
+  .titleContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+  }
+
+  .headShotWrap {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin-bottom: 25px;
+  }
+
+  .headShot {
+    max-height: 100px;
+    width: auto;
+    border-radius: 50%;
+  }
+
+  .headShotImage {
+    border-radius: 50%;
+  }
+
+  .rule {
+    margin: 25px 0;
+  }
+
+  .navContainer {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    align-items: center;
+  }
+
+  .navItem {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 25px 0;
+    transition: .2s;
+  }
+
+  .navItem:hover {
+    background: #FFF;
+    color: #000;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  .mobileDrawer {
+    display: none;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .sideBar {
+    width: 100%;
+    height: 10vh;
+    top: 0;
+    padding: 0 50px;
+    background: #000;
+    color: #FFF;
+    display: flex;
+    z-index: 10000;
+  }
+
+  #mainNav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .titleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .headShotImage {
+    border-radius: 50%;
+  }
+
+  .name {
+    display: none;
+  }
+
+  .headShotWrap {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    margin: 0;
+    left: 0;
+  }
+
+  .rule {
+    display: none;
+  }
+
+  .navContainer {
+    display: none;
+  }
+
+  .hamburger:hover {
+    cursor: pointer;
+  }
+
+  .hamburgerRow {
+    width: 35px;
+    height: 5px;
+    background-color: #FFF;
+    margin: 6px 0;
+    transition: .2s;
+  }
+
+  .mobileDrawer {
+    display: block;
+    background-color:whitesmoke;
+    width: 100%;
+    position: absolute;
+    top: -30vh;
+    transition: .2s
+  }
+
+  .mobileDrawerList {
+    list-style-type: none;
+  }
+
+  .mobileDrawerListItem {
+    padding: 25px 0;
+  }
+
+  .mobileDrawerListItem:not(:last-child) {
+    border-bottom: 1px solid #000;
+  }
+}
