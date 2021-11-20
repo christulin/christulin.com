@@ -14,3 +14,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/* Will clean up later */
+#open {
+  position: absolute;
+  right: 85px;
+  top: 35px;
+}
