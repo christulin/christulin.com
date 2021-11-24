@@ -15,6 +15,23 @@ a {
   box-sizing: border-box;
 }
 
+main {
+  position: relative;
+  left: 30vh;
+  width: 75%;
+}
+
+@media (max-width: 992px) {
+  main {
+    left: 0;
+    width: 100%;
+  }
+}
+
+article {
+  padding: 0 50px;
+}
+
 /* Will clean up later */
 #open {
   position: absolute;

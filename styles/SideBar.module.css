@@ -71,7 +71,7 @@
 @media (max-width: 992px) {
   .sideBar {
     width: 100%;
-    height: 10vh;
+    height: 75px;
     top: 0;
     padding: 0 50px;
     background: #000;
@@ -134,8 +134,9 @@
     background-color:whitesmoke;
     width: 100%;
     position: absolute;
-    top: -30vh;
-    transition: .2s
+    top: -258px;
+    transition: .2s;
+    z-index: 10000;
   }
 
   .mobileDrawerList {

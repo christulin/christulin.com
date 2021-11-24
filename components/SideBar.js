@@ -21,7 +21,7 @@ const SideBar = ({ showSideBar }) => {
       topRow.style.position = 'absolute';
       bottomRow.style.transform = 'rotate(45deg)';
       bottomRow.style.position = 'absolute';
-      drawer.style.top = '10vh';
+      drawer.style.top = '75px';
       burger.id = 'open';
     } else {
       middleRow.style.display = 'block';
@@ -29,7 +29,7 @@ const SideBar = ({ showSideBar }) => {
       topRow.style.position = 'relative';
       bottomRow.style.transform = 'rotate(0deg)';
       bottomRow.style.position = 'relative';
-      drawer.style.top = '-30vh';
+      drawer.style.top = '-258px';
       burger.id = 'shut';
     }
     toggleDrawer(!showDrawer);
