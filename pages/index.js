@@ -3,7 +3,6 @@ import styles from '../styles/Home.module.css';
 import SideBar from '../components/SideBar';
 import PostTile from '../components/PostTile';
 import Footer from '../components/Footer';
-import Nav from '../components/Nav';
 import { getAllPosts } from '../lib/api';
 import { useState, useEffect } from 'react';
 

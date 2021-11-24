@@ -1,34 +1,19 @@
 import SideBar from '../components/SideBar';
 import Footer from '../components/Footer';
-import Nav from '../components/Nav';
 import styles from '../styles/Home.module.css';
-import { useEffect, useState } from 'react';
 
 const Contact = () => {
 
-  const [showSideBar, toggleSideBar] = useState(true);
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    if (width <= 600) {
-      toggleSideBar(false)
-    }
-  }, []);
+  //Leaving hide show logic for now
+  const showSideBar = true;
 
   return (
     <div className={styles.container}>
-      <Nav toggleSideBar={toggleSideBar} showSideBar={showSideBar}/>
       <SideBar showSideBar={showSideBar}/>
       <main className={styles.main}>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-sm-8">
-              <p>Contact Section Will be added here</p>
-            </div>
-          </div>
-        </div>
+        <p>Contact Section Will be added here</p>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

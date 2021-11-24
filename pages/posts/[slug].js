@@ -6,7 +6,6 @@ import PostBody from '../../components/PostBody';
 import PostHeader from '../../components/PostHeader';
 import SideBar from '../../components/SideBar';
 import Footer from '../../components/Footer';
-import Nav from '../../components/Nav';
 import markdownToHtml from '../../lib/markdownToHtml.js'
 import styles from '../../styles/Home.module.css';
 import { useEffect, useState } from 'react';
@@ -16,14 +15,9 @@ export default function Post({ post, morePosts, preview }) {
   // if (!router.isFallback && !post?.slug) {
   //   return <ErrorPage statusCode={404} />
   // }
-  const [showSideBar, toggleSideBar] = useState(true);
 
-  useEffect(() => {
-    const width = window.innerWidth;
-    if (width <= 600) {
-      toggleSideBar(false)
-    }
-  }, []);
+  const showSideBar = true;
+
   return (
       <>
         <Head>
@@ -31,28 +25,18 @@ export default function Post({ post, morePosts, preview }) {
             {post.title}
           </title>
         </Head>
-        <Nav toggleSideBar={toggleSideBar} showSideBar={showSideBar}/>
-        <SideBar showSideBar={showSideBar}/>
+        <SideBar showSideBar={showSideBar} />
         <main className={styles.main}>
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-sm-4">
-                {/* <SideBar /> */}
-              </div>
-              <div className="col-sm-8">
-                <article className="mb-32">
-                  <PostHeader
-                    title={post.title}
-                    date={post.date}
-                    author={post.author}
-                  />
-                  <PostBody content={post.content} />
-                </article>
-              </div>
-            </div>
-          </div>
+          <article>
+            <PostHeader
+              title={post.title}
+              date={post.date}
+              author={post.author}
+            />
+            <PostBody content={post.content} />
+          </article>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </>
   )
 }
