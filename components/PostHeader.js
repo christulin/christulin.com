@@ -1,9 +1,9 @@
 const PostHeader = ({ title, coverImage, date, author }) => {
 
   return (
-    <div>
+    <h1>
       {title}
-    </div>
+    </h1>
   )
 }
 

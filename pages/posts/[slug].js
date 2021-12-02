@@ -9,6 +9,7 @@ import Footer from '../../components/Footer';
 import markdownToHtml from '../../lib/markdownToHtml.js'
 import styles from '../../styles/Home.module.css';
 import { useEffect, useState } from 'react';
+import { useWindowSize } from '../../lib/windowSize';
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
@@ -17,6 +18,12 @@ export default function Post({ post, morePosts, preview }) {
   // }
 
   const showSideBar = true;
+  const { width } = useWindowSize();
+  const [ dropDownActive, setDropDownActive ] = useState(false);
+
+  const handleMobileDropdown = value => {
+    setDropDownActive(value);
+  }
 
   return (
       <>
@@ -25,8 +32,8 @@ export default function Post({ post, morePosts, preview }) {
             {post.title}
           </title>
         </Head>
-        <SideBar showSideBar={showSideBar} />
-        <main className={styles.main}>
+        <SideBar showSideBar={showSideBar} handleMobileDropdown={handleMobileDropdown} />
+        <main className={styles.main} data-freeze={dropDownActive ? 'frozen' : ''}>
           <article>
             <PostHeader
               title={post.title}
@@ -36,7 +43,7 @@ export default function Post({ post, morePosts, preview }) {
             <PostBody content={post.content} />
           </article>
         </main>
-        {/* <Footer /> */}
+        { width < 992 ? <Footer /> : ''}
       </>
   )
 }

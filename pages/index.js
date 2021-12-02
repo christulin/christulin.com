@@ -4,10 +4,18 @@ import SideBar from '../components/SideBar';
 import PostTile from '../components/PostTile';
 import Footer from '../components/Footer';
 import { getAllPosts } from '../lib/api';
+import { useWindowSize } from '../lib/windowSize';
+import { useState } from 'react';
 
 export default function Home({ allPosts }) {
 
   const showSideBar = true;
+  const { width } = useWindowSize();
+  const [ dropDownActive, setDropDownActive ] = useState(false);
+
+  const handleMobileDropdown = value => {
+    setDropDownActive(value);
+  }
 
   return (
     <div className={styles.container}>
@@ -16,13 +24,13 @@ export default function Home({ allPosts }) {
         <meta name="description" content="The portfolio website for Chris Tulin, along with a collection of rants about software engineering, web development, and marketing automation" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SideBar showSideBar={showSideBar}/>
-      <main className={styles.main}>
+      <SideBar showSideBar={showSideBar} handleMobileDropdown={handleMobileDropdown} />
+      <main className={styles.main} data-freeze={dropDownActive ? 'frozen' : ''} >
         <div className={styles.grid}>
           {allPosts.map((post, i) => <PostTile post={post} key={i} />)}
         </div>
       </main>
-      {/* <Footer /> */}
+      { width < 992 ? <Footer /> : ''}
     </div>
   )
 }
