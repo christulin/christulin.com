@@ -35,6 +35,13 @@
     border-radius: 50%;
   }
 
+  .socialIcons {
+    margin-top: 12.5px;
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+  }
+
   .rule {
     margin: 25px 0;
   }
@@ -60,6 +67,12 @@
     color: #000;
     cursor: pointer;
     font-size: 20px;
+  }
+
+  .copyright {
+    position: absolute;
+    bottom: 25px;
+    left: 11vh;
   }
 
   .mobileDrawer {
@@ -110,6 +123,10 @@
     left: 0;
   }
 
+  .socialIcons {
+    display: none;
+  }
+
   .rule {
     display: none;
   }
@@ -146,9 +163,14 @@
 
   .mobileDrawerListItem {
     padding: 25px 0;
+    margin-right: 25px;
   }
 
   .mobileDrawerListItem:not(:last-child) {
     border-bottom: 1px solid #000;
+  }
+
+  .copyright {
+    display: none;
   }
 }
