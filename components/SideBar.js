@@ -43,7 +43,7 @@ const SideBar = ({ showSideBar, handleMobileDropdown }) => {
           <aside id={styles.mainNav}>
             <div className={styles.titleContainer}>
               <div className={styles.headShotWrap}>
-                <Image src="/headshot.jpg" layout="fill" objectFit="cover" className={styles.headShotImage}/>
+                <Image src="/headshot.jpg" fill style={{ objectFit: 'cover' }} className={styles.headShotImage} alt="Chris Tulin"/>
               </div>
               <a href="/" className={styles.name}>
                 <span>Chris Tulin</span>
