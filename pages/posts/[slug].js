@@ -1,51 +1,25 @@
-import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
-import Head from 'next/head'
+import { getPostBySlug, getAllPosts } from '../../lib/api';
+import Head from 'next/head';
 import PostBody from '../../components/PostBody';
 import PostHeader from '../../components/PostHeader';
-import SideBar from '../../components/SideBar';
-import Footer from '../../components/Footer';
-import markdownToHtml from '../../lib/markdownToHtml.js'
-import styles from '../../styles/Home.module.css';
-import { useEffect, useState } from 'react';
-import { useWindowSize } from '../../lib/windowSize';
+import markdownToHtml from '../../lib/markdownToHtml.js';
 
-export default function Post({ post, morePosts, preview }) {
-  const router = useRouter()
-  // if (!router.isFallback && !post?.slug) {
-  //   return <ErrorPage statusCode={404} />
-  // }
-
-  const showSideBar = true;
-  const { width } = useWindowSize();
-  const [ dropDownActive, setDropDownActive ] = useState(false);
-
-  const handleMobileDropdown = value => {
-    setDropDownActive(value);
-  }
-
+export default function Post({ post }) {
   return (
-      <>
-        <Head>
-          <title>
-            {post.title}
-          </title>
-        </Head>
-        <SideBar showSideBar={showSideBar} handleMobileDropdown={handleMobileDropdown} />
-        <main className={styles.main} data-freeze={dropDownActive ? 'frozen' : ''}>
-          <article>
-            <PostHeader
-              title={post.title}
-              date={post.date}
-              author={post.author}
-            />
-            <PostBody content={post.content} />
-          </article>
-        </main>
-        { width < 992 ? <Footer /> : ''}
-      </>
-  )
+    <>
+      <Head>
+        <title>{`${post.title} | Chris Tulin`}</title>
+      </Head>
+      <article>
+        <PostHeader
+          title={post.title}
+          date={post.date}
+          author={post.author}
+        />
+        <PostBody content={post.content} />
+      </article>
+    </>
+  );
 }
 
 export async function getStaticProps({ params }) {
@@ -57,8 +31,8 @@ export async function getStaticProps({ params }) {
     'content',
     'ogImage',
     'coverImage',
-  ])
-  const content = await markdownToHtml(post.content || '')
+  ]);
+  const content = await markdownToHtml(post.content || '');
 
   return {
     props: {
@@ -67,20 +41,16 @@ export async function getStaticProps({ params }) {
         content,
       },
     },
-  }
+  };
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug'])
+  const posts = getAllPosts(['slug']);
 
   return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      }
-    }),
+    paths: posts.map((post) => ({
+      params: { slug: post.slug },
+    })),
     fallback: false,
-  }
+  };
 }

@@ -1,29 +1,17 @@
-import SideBar from '../components/SideBar';
-import Footer from '../components/Footer';
-import styles from '../styles/Home.module.css';
-import { useState } from 'react';
-import { useWindowSize } from '../lib/windowSize';
+import Head from 'next/head';
 
 const Contact = () => {
-
-  //Leaving hide show logic for now
-  const showSideBar = true;
-  const { width } = useWindowSize();
-  const [ dropDownActive, setDropDownActive ] = useState(false);
-
-  const handleMobileDropdown = value => {
-    setDropDownActive(value);
-  }
-
   return (
-    <div className={styles.container}>
-      <SideBar showSideBar={showSideBar} handleMobileDropdown={handleMobileDropdown} />
-      <main className={styles.main} data-freeze={dropDownActive ? 'frozen' : ''}>
-        <p>Contact Section Will be added here</p>
-      </main>
-      { width < 992 ? <Footer /> : ''}
-    </div>
-  )
-}
+    <>
+      <Head>
+        <title>Contact | Chris Tulin</title>
+      </Head>
+      <article>
+        <h1>Contact</h1>
+        <p>Contact section coming soon.</p>
+      </article>
+    </>
+  );
+};
 
 export default Contact;
