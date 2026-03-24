@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import themeScript from '../lib/themeScript';
 
 export default function Document() {
   return (
@@ -6,8 +7,9 @@ export default function Document() {
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;1,400&display=swap"
           rel="stylesheet"
         />
       </Head>

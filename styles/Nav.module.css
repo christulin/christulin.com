@@ -5,7 +5,7 @@
   right: 0;
   z-index: 1000;
   height: var(--nav-height);
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--nav-bg);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
@@ -62,7 +62,10 @@
 }
 
 .desktopLinks a:hover {
-  color: var(--color-accent);
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .socialIcons {
@@ -82,7 +85,24 @@
 }
 
 .socialIcons a:hover {
-  color: var(--color-accent);
+  color: var(--gradient-accent-start);
+}
+
+/* Theme toggle button */
+.themeToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.15s ease;
+  line-height: 0;
+}
+
+.themeToggle:hover {
+  opacity: 0.6;
 }
 
 /* Hamburger button */
@@ -149,7 +169,7 @@
   }
 
   .mobileMenuOpen {
-    max-height: 320px;
+    max-height: 360px;
     padding: 20px 24px 24px;
   }
 
@@ -177,5 +197,23 @@
     border-bottom: none !important;
     color: var(--color-text-muted);
     padding: 0 !important;
+  }
+
+  .mobileThemeToggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--color-text);
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
   }
 }
